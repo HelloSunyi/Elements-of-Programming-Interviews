@@ -11,7 +11,7 @@ string shorten_path(string s) {
   if (s[i] != '/')
     return "";
   while (i < s.size()) {
-    while (i < s.size() && s[i] != '/')
+    while (i < s.size() && s[i] == '/')
       i++;
     int start = i;
     while (i < s.size() && s[i] != '/')
