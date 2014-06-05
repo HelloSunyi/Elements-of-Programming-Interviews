@@ -1,16 +1,19 @@
 #include <iostream>
+#include <math>
 #include "node"
 
-using namespace std;
-
-node* lca(node* root, node* p, node* q) {
+node* k_balanced(node* root, int& sum, int k) {
   if (root == NULL)
-    return;
-  if (root == p || root == q)
+    return NULL;
+  int ls = 0, rs = 0;
+  node* ln = k_balanced(root->left, ls);
+  node* rn = k_balanced(root->right, rs);
+  if (ln)
+    return ln;
+  if (rn)
+    return rn;
+  sum = ls + rs + 1;
+  if (abs(ls - rs) > k)
     return root;
-  node *lnode = lca(root->left, p, q);
-  node *rnode = lca(root->right, p, q);
-  if (lnode && rnode)
-    return root;
-  return (lnode) ? lnode : rnode;
+  return NULL;
 }
