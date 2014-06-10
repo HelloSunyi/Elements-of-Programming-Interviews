@@ -1,18 +1,18 @@
 #include <iostream>
-#include "node.h"
+#include <vector>
 
 using namespace std;
 
-int find_first_k(const vector<int>& v, int k) {
+int search_in_circular_array(const vector<int>& v) {
   int low = 0;
   int high = v.size() - 1;
   int mid;
   while (low < high) {
-    mid = low + (high - low) / 2;
-    if (v[mid] >= k)
+    mid = low + (high - low)/2;
+    if (A[mid] < A[high])
       high = mid;
     else
       low = mid + 1;
   }
-  return (v[low] == k)? low : -1;
+  return l;
 }
