@@ -3,16 +3,15 @@
 
 using namespace std;
 
-int search_in_circular_array(const vector<int>& v) {
+int find_first_larger(const vector<int>& v, int k) {
   int low = 0;
   int high = v.size() - 1;
-  int mid;
   while (low < high) {
-    mid = low + (high - low)/2;
-    if (A[mid] < A[high])
-      high = mid;
+    int mid = low + (high - low)/2;
+    if (v[mid] <= k)
+       mid = low + 1;
     else
-      low = mid + 1;
+       high = mid;
   }
-  return l;
+  return (v[low] > k) ? low : -1;
 }
