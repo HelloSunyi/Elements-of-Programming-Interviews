@@ -30,3 +30,4 @@ int search(vector<int> A, int k) {
     low = high;
   }
 }
+
