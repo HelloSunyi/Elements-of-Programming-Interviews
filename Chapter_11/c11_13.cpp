@@ -18,4 +18,9 @@ void partition(vector<int> &V, int low, int high, int k) {
     return partition(V, low, m-1, k);
   else
     return partition(V, m + 1, high, k - m - 1);  
-} 
+}
+
+vector<int> selection(vector<int> v, int k) {
+  partition(v, 0, v.size() - 1, k);
+  return v;
+}
