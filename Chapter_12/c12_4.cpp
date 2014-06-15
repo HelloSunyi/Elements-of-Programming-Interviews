@@ -29,7 +29,7 @@ node* find_Cannonical(node* root) {
   }	
   node* l = find_Cannonical(root->left);
   node* r = find_Cannonical(root->right);
-  if  (m.find(root->hash_node) != end()){
+  if (m.find(root->hash_node) != m.end()){
     return m[root->hash_node];
   }
   m[hash_node] = root;
