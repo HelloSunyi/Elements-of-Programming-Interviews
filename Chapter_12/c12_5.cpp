@@ -17,7 +17,7 @@ vector<pair<s, s> > pair_user(vector<s> V) {
   for (int i = 0; i < V.size(); i++) {
     if (hash.find(V[i].attr) == hash.end()) {
       ret.push_back(make_pair<s, s> (hash.find(V[i].attr)->second, V[i]));
-      hash.erase(hash.find(V[i].attr);
+      hash.erase(hash.find(V[i].attr));
       } else {
       hash[V[i].attr] == V[i];
       }
