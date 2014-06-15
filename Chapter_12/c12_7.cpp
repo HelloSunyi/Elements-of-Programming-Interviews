@@ -17,3 +17,4 @@ bool re_construct(string s, string t) {
   }
   return true;
 }
+
