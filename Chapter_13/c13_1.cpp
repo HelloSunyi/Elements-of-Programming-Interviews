@@ -1,21 +1,20 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
+#include <string>
 
 using namespace std;
 
-vector<int> find_elementds_in_common(vector<int> n, vector<int> m) {
-  vector<int> ret;
-  int i_n = 0, i_m = 0;
-  while (i_n < n.size() && i_m < n.size()) {
-    if (n[i_n] == m[i_m] && (ret.size() == 0 || ret.back() != n[i_n])) {
-      ret.push_back(n[_n];
-      i_n++;
-      i_m++;
-    } else if (n[i_n] == m[i_m]) {
-        i_n++;
-    } else {
-        i_m++;
-    }
+// The key point is use pointer rather than string variable to swap.
+struct cmp {
+  bool operator() (string* s1, string* s2) {
+    return (*s1) < (*s2);
   }
-  return ret;
+};
+
+void sort(vector<string> S) {
+  vector<string*> sptr;
+  for (int i = 0; i < S.size(); i++) {
+    sptr.push_back(&S[i]);
+  }
+  sort(sptr.begin(), sptr.end(), cmp);
 }
