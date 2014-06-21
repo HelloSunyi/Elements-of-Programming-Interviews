@@ -1,21 +1,49 @@
 #include <iostream>
-#include <vector>
+#include <map>
+#include <algorithm>
 
-using namespace std;
+struct Interval {
+  int l;
+  int r;
+};
 
-vector<pair<int, int> > insert_interval(vector<pair<int, int> > V, pair<int, int> k) {
-  vector<pair<int, int> > ret;
-  int index = 0;
-  while (index < V.size() && V[index].second < k.first) {
-    ret.push_back(V[index++]);
+struct Point {
+  int value;
+  int index;
+  bool isLeft;
+};
+
+struct cmp {
+  bool operator()(Point p1, Point p2) {
+    return p1.value == p2.value ? p2.isLeft : p1.value < p2.value;
   }
-  while (index < V.size() && V[index].first <= k.second) {
-    k.first = min(k.first, V[index].first);
-    k.second = max(k.second, [index].second);
-    index++;
+};
+
+vector<int> find_minimum_visits(vector<Interval> V) {
+  vector<Point> p(V.size());
+  for (int i = 0; i < V.size(); i++) {
+    Point t;
+    t.value = V[i].l;
+    t.isLeft = true;
+    t.index = i;
+    p.push_back(t);
+    t.value = V[i].r;
+    t.isLeft = false;
+    p.push_back(t);
   }
-  ret.push_back(k);
-  while (index < V.size())
-    ret.push_back(V[index++]);
+  sort(p.begin(), p.end(), cmp);
+  map<int, int> coverd;
+  vector<Point> covering;
+  vector<int> ret;
+  for (int i = 0; i < P.size(); i++) {
+    if (P[i].isLeft) {
+      corvering.push_back(P[i]);
+    } else (coverd.find(P[i].index) == coverd.end()) {
+      ret.push_back(P[i].value);
+      for (int j = 0; j < coveing.size(); j++)
+        cover[covering[i].index] = 1;
+      covering.clear();
+    }
+  }
   return ret;
 }
