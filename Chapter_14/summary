@@ -1,0 +1,8 @@
+// O(N) time complexity
+// 1. Sorted array to BST.
+// 2. BST to Sorted array.
+// 3. BST to Sorted double linked list.
+// 4. Sorted double/single linked list to Bst.
+
+// Why use BST:
+// Due to the insert, delete and search operation overhead is O(lgn), and totally is O(Nlgn).
