@@ -6,3 +6,8 @@
 
 // Why use BST:
 // Due to the insert, delete and search operation overhead is O(lgn), and totally is O(Nlgn).
+
+// For searching, hash and BST is the easist to be thought of.
+// However, if we want to know the minimum, the maxmum, the k largest ones, the k smallest ones,
+// especially after dynamic update, want to get these data periodically. It is very convenient to use
+// BST. For the k largest/smallest elements, firstly get the minimum(most left)/maxmum(most right) one, and then iterate its predecessor/successor(with parient pointer in BST).
